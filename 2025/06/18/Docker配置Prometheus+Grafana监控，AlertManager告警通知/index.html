@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="zeze">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/2025/06/18/docker配置prometheus+grafana监控，alertmanager告警通知/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker配置Prometheus+Grafana监控，AlertManager告警通知">
+<meta property="og:url" content="http://example.com/2025/06/18/Docker%E9%85%8D%E7%BD%AEPrometheus+Grafana%E7%9B%91%E6%8E%A7%EF%BC%8CAlertManager%E5%91%8A%E8%AD%A6%E9%80%9A%E7%9F%A5/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/redefine-og.webp">
+<meta property="article:published_time" content="2025-06-18T03:57:14.000Z">
+<meta property="article:modified_time" content="2025-06-18T04:54:58.548Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="监控">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#A2ED50">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            Docker配置Prometheus+Grafana监控，AlertManager告警通知 | wz的学习日志
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/css/build/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+        
+<script src="/js/build/libs/anime.min.js"></script>
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"example.com","root":"/","language":"en"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A2ED50","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"人生若只如初见，何事秋风悲画扇"},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"溪花与禅意，相对亦忘言","subtitle":{"text":["月光如水，风景依旧"],"hitokoto":{"enable":true,"show_author":false,"api":"https://v1.hitokoto.cn/?c=i"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":2000,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"fixed","audios":[{"name":"Something Just Like This","artist":"Coldplay","url":"https://evan.beee.top/music/Something%20Just%20Like%20This%20-%20The%20Chainsmokers%E3%80%81Coldplay.mp3","cover":"https://evan.beee.top/music/covers/Something_Just_Like_This.png"}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2025/6/18 00:00:00"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+	<span class="scroll-progress-bar"></span>
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        人生若只如初见，何事秋风悲画扇
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                wz的学习日志
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">2</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">2</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">2</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Docker配置Prometheus+Grafana监控，AlertManager告警通知</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/images/al.png">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">zeze</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv1</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-06-18 11:57:14</span>
+        <span class="mobile">2025-06-18 11:57:14</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-06-18 12:54:58</span>
+            <span class="mobile">2025-06-18 12:54:58</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E9%85%8D%E7%BD%AE/">配置</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E7%9B%91%E6%8E%A7/">监控</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>虚拟机 centos 7 ip : 192.168.37.200<br>所有镜像都是官方镜像 版本：latest<br>prometheus 3.4.1<br>grafana v12.0.1<br>alertmanager 0.28.1</p>
+<h1 id="创建Prometheus容器"><a href="#创建Prometheus容器" class="headerlink" title="创建Prometheus容器"></a>创建Prometheus容器</h1><h2 id="创建配置文件"><a href="#创建配置文件" class="headerlink" title="创建配置文件"></a>创建配置文件</h2><p>选择目录创建prometheus.yml，是prometheus的配置文件，等下挂载它，内容如下</p>
+<div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">global:</span></span><br><span class="line">  <span class="attr">scrape_interval:</span> <span class="string">15s</span> </span><br><span class="line">  <span class="attr">evaluation_interval:</span> <span class="string">15s</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">alerting:</span></span><br><span class="line">  <span class="attr">alertmanagers:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">static_configs:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">targets:</span></span><br><span class="line">            <span class="comment">#- &quot;192.168.37.200:9103&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">rule_files:</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment"># - &quot;first_rules.yml&quot;</span></span><br><span class="line">  <span class="comment"># - &quot;second_rules.yml&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">scrape_configs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">&quot;prometheus&quot;</span></span><br><span class="line">    <span class="attr">static_configs:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">targets:</span> [<span class="string">&quot;localhost:9090&quot;</span>]</span><br><span class="line">      </span><br><span class="line">   </span><br></pre></td></tr></table></figure></div>
+
+<h2 id="创建告警规则目录（不需要告警可以忽略这一步）"><a href="#创建告警规则目录（不需要告警可以忽略这一步）" class="headerlink" title="创建告警规则目录（不需要告警可以忽略这一步）"></a>创建告警规则目录（不需要告警可以忽略这一步）</h2><p>选择目录创建一个告警规则的文件夹用来放告警的规则，比如</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=NTRlNGMxODI4MDMxMTRhZjE5MWI5ZDM0YzczZTU5NDFfOHd5SXdzdWtHUmJFc2g5M1ZtZEJEaW1mYnRvNFFzS21fVG9rZW46VU5Yc2J2U3Job0FUMkN4bzBjRWNTVnlybjVMXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     
+                ></p>
+<h2 id="启动prometheus"><a href="#启动prometheus" class="headerlink" title="启动prometheus"></a>启动prometheus</h2><p>启动prometheus，如果不需要告警可以不挂载告警规则对应文件夹</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run --name prometheus -d  --user root \</span><br><span class="line">-p 9100:9090 \ </span><br><span class="line">--restart=always \</span><br><span class="line">-v ./WangZe/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml \</span><br><span class="line">-v ./WangZe/prometheus/prometheusAlertRules/:/root/prometheusRules/ \</span><br><span class="line">prom/prometheus</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>容器创建成功后，即可通过浏览器访问 <a class="link"   target="_blank" rel="noopener" href="http://192.168.37.200:9100/" >http://192.168.37.200:9100<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 可看到Prometheus默认的UI界面</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=MjJhZjk5OTQzOWJkN2Y4NTlkODUwMjIzODY2NzE1NGNfRGh5cU5SZVpTajNaVEFxbUNHdFRFM1c4VjNEVVczNDlfVG9rZW46WTZUZmJKbUNab2hoekR4TFhxdmNob09FbmZiXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     
+                ></p>
+</blockquote>
+<h1 id="创建Grafana容器"><a href="#创建Grafana容器" class="headerlink" title="创建Grafana容器"></a>创建Grafana容器</h1><p>Grafana是一个跨平台开源的度量分析和可视化工具，可以通过将采集的数据可视化的展示</p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name=grafana --user root\</span><br><span class="line">-p <span class="number">9101</span>:<span class="number">3000</span> \</span><br><span class="line">-v ./WangZe/grafana/:/<span class="keyword">var</span>/lib/grafana/ \</span><br><span class="line">grafana/grafana</span><br></pre></td></tr></table></figure></div>
+
+<p><code>-v ./WangZe/grafana/:/var/lib/grafana/</code> 是用于持久化 Grafana 的数据文件：Grafana 在运行时会生成各种数据，比如用户配置、仪表盘、插件数据等</p>
+<blockquote>
+<p>容器创建成功后，即可通过浏览器访问 <a class="link"   target="_blank" rel="noopener" href="http://192.168.37.200:9101/" >http://192.168.37.200:9101<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 可看到Grafana界面</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=N2E5NDhjZTdhNmVjYWE2NGMwOTVkYWNiNmIzZjI2Y2RfTmtDWFZsNW5GRjJlTTRqRXFZQlUxUzRjT1kyVFVTYTRfVG9rZW46Q3VrYWJBNTN5bzRwQ1h4elR0UmNNQ2lzbnZmXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     
+                ></p>
+</blockquote>
+<h1 id="监控Linux"><a href="#监控Linux" class="headerlink" title="监控Linux"></a>监控Linux</h1><h2 id="安装Node-exporter"><a href="#安装Node-exporter" class="headerlink" title="安装Node_exporter"></a>安装Node_exporter</h2><p>因为Prometheus 本身不具备监控功能，所以想要通过Prometheus 收集数据的话，需要安装对应的exporter</p>
+<p>Exporter 的核心功能是采集数据并格式化，使其可以被 Prometheus 等监控工具使用</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name=node-exporter \</span><br><span class="line">--restart=always \</span><br><span class="line">-p 9102:9100 \</span><br><span class="line">-v <span class="string">&quot;/proc:/host/proc:ro&quot;</span> \</span><br><span class="line">-v <span class="string">&quot;/sys:/host/sys:ro&quot;</span> \</span><br><span class="line">-v <span class="string">&quot;/:/rootfs:ro&quot;</span> \</span><br><span class="line">prom/node-exporter</span><br></pre></td></tr></table></figure></div>
+
+<p>挂载的路径是linux内部硬件、内存等信息的路径（好像也可以不用显示挂载，它可能默认挂载）</p>
+<blockquote>
+<p>容器创建成功后，即可通过浏览器访问 <a class="link"   target="_blank" rel="noopener" href="http://192.168.37.200:9102/metrics" >http://192.168.37.200:9102/metrics<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 来验证查看监控收集的数据</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=YWJhNjFkNDg2YTNkZTM3ZThkNWNkMTY1NDEzODg4YmFfWkxaM01KNGhOSFUxQUF3bmlveW95dFFRa29YeG1ZRDVfVG9rZW46Umdua2JMb1pMbzRmY3l4cHZ4a2NKanpoblNqXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     
+                ></p>
+</blockquote>
+<h2 id="配置-Prometheus-监控Node节点"><a href="#配置-Prometheus-监控Node节点" class="headerlink" title="配置 Prometheus 监控Node节点"></a>配置 Prometheus 监控Node节点</h2><p>修改Prometheus主配置文件，在prometheus.tml配置文件按以下内容修改：</p>
+<div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">scrape_configs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">&quot;prometheus&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># metrics_path defaults to &#x27;/metrics&#x27;</span></span><br><span class="line">    <span class="comment"># scheme defaults to &#x27;http&#x27;.</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">static_configs:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">targets:</span> [<span class="string">&quot;localhost:9090&quot;</span>]</span><br><span class="line">      </span><br><span class="line"><span class="comment">##########################新增部分###########################</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">&quot;linux&quot;</span>                     <span class="comment">#任务名称随便填了</span></span><br><span class="line">    <span class="attr">static_configs:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">targets:</span> [<span class="string">&#x27;192.168.37.200:9102&#x27;</span>]    <span class="comment">#node-exporter的地址</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">instance:</span> <span class="string">local-centos</span></span><br><span class="line"><span class="comment">##########################新增部分###########################</span></span><br></pre></td></tr></table></figure></div>
+
+<p>重启Prometheus容器</p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart prometheus</span><br></pre></td></tr></table></figure></div>
+
+<p>访问peometheus然后能在对应页面看到对应的配置</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2IxNDNiYjJhZmJhYWY3NWIxY2MwOWYzYTAyZTkyM2NfR0VFV0NSQmpMczYwVVU2T2dENmFvT2hVTnpXcXVwQVlfVG9rZW46UzJFNmJrUjNLb25uYnV4UEUyN2Mxekl1bnljXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     
+                ></p>
+<h1 id="配置Grafana可视化界面"><a href="#配置Grafana可视化界面" class="headerlink" title="配置Grafana可视化界面"></a>配置Grafana可视化界面</h1><p>页面可能由于版本，镜像源不同导致页面不一样，可能也就是按钮不一样吧，大概找找就行</p>
+<h2 id="配置数据源"><a href="#配置数据源" class="headerlink" title="配置数据源"></a>配置数据源</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=MjZhN2I2ODc2OTUwOWVlMWI0NGUwNjc3OGI3OTcyNTRfeEx2aUtPWkhHUnFVNjVxMndMV2toUk5oUTVuaUF5UkNfVG9rZW46RkhLT2JjQ2sybzBhQ0t4Q2p4NmNEMW9vbjJnXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=ZWZjZmNhNjZlYmIwZDgyYjM4ZTAzNDhmZjQwYmI5NjFfR05ZQUJqU2FWTmVrSVRFVm00cGxZcGtscHR0Ykg3UkxfVG9rZW46QXZBN2JaRHpib0JHVjd4d3pXdWNPY2VSblBkXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     
+                ></p>
+<p>Name可以随便写、或者默认，然后填一个Prometheus的URL就好</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=MTQzM2ExYmVlOGVhMTE1ZDc5Y2U0M2RkNjVjMDMzMThfRU1KbWFDRHl4TFI0UFJkQTA4d2hMa09velNaQzgyRWlfVG9rZW46SVdXN2JFYmxNb2RPT2F4OHlWeWNBVmxxbkZmXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     
+                ></p>
+<h2 id="新建仪表盘"><a href="#新建仪表盘" class="headerlink" title="新建仪表盘"></a>新建仪表盘</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=OTVlNDcyOGNjYjYyNTU2YTBiMDk2YzdkZGRmYTE0ZGVfRUEyWmJNT004N3U0NDIzeENHdVl5TkpnVWpPZVp2TUlfVG9rZW46S2ZxS2JUWDZ4bzZ4bEF4a0Z0V2M2ZnNvblNmXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=NjI4ZTBlNzRhZGY2MjA4OTBlMTM5ZTA0ZDYyMmE1OTZfSjBTV0JpMFRkME1OTEFNS0JtcWV1MXZnOFN3WDVieHJfVG9rZW46TUhLQ2J2bUd0b2NRWXF4R1R0N2NhakJibldmXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     
+                ></p>
+<p>可以去<a class="link"   target="_blank" rel="noopener" href="https://grafana.com/grafana/dashboards/%E6%89%BE%E6%83%B3%E7%94%A8%E7%9A%84%E4%BB%AA%E8%A1%A8%E7%9B%98" >https://grafana.com/grafana/dashboards/找想用的仪表盘<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p>比如这个是Linux的</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=YzRmYTI5M2M0OWJkOGM1YmFjZTE5MjE1MjE0MTNkYTFfZXhqS0RiUmQxdUw2dUZQNlh5TGswRkhwTENxZmg4eFBfVG9rZW46QVNKQ2JqRDVkb0hMb1h4V1VLcmN2MkFWbmJkXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     
+                ></p>
+<p>输入id然后加载</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=MWU4ZjQ2MzMyZGNiZDFlOTQwZDdiOTRiZDFhOWEyMTJfVlp3T1RWaHRINGhOUXRZNGJ3Q0lPS1QzMFhSTG9QVkFfVG9rZW46TGVFNGI0SThwb0lrRG54c0dxOGNWWFo0bnBlXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     
+                ></p>
+<p>最后选择一下数据源就好了</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=N2NjMzI3ZWU5MTc5MzQxMDAyZTRlZjk5NGM5YjQ3ZjJfM1ZzN2VOOHRMckw4OWlLbm5pY0RrajlCTngzUExCdHRfVG9rZW46WFhZVmJyRzlJb1hadjB4SWJ4dGNrMGh6bkdiXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     
+                ></p>
+<p>找到刚刚的仪表盘即可看到对应的数据</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGI3MTM5YTNkNDdmZWI1ZDA3NTQzNmM3NWE5YjRiMDVfUGxLcGxSVnc1SktBMmNtQkw1M3R5RjRTNWxqbXFOTWpfVG9rZW46U1NJVmJQRVhyb0NUMHB4aUdkZmMwa21VbmJjXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     
+                ></p>
+<h1 id="监控多个Linux"><a href="#监控多个Linux" class="headerlink" title="监控多个Linux"></a>监控多个Linux</h1><p>也可以在前面基础上再加一个</p>
+<div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">  <span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">&quot;linux&quot;</span></span><br><span class="line">    <span class="attr">static_configs:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">targets:</span> [<span class="string">&#x27;192.168.37.200:9102&#x27;</span>]</span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">instance:</span> <span class="string">local-centos</span></span><br><span class="line"><span class="comment">############更改部分##############</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">targets:</span> [<span class="string">&#x27;--.--.--.--:----&#x27;</span>]         </span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">instance:</span> <span class="string">linux2</span></span><br><span class="line"></span><br><span class="line">  </span><br></pre></td></tr></table></figure></div>
+
+<p>对应的效果就是这样，他们属于同一个Job，但是有两个实例</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=YjA5YWQ1OWE2ZTU0N2I2MTM0Y2U2OWM2ZjA5ODMxMjBfZldNUVFleEJ6aUMybldyVDE4RlpuOE1mVWs0TEdnYmxfVG9rZW46VmF6cmJqSFpnbzlUdXV4cWtXV2NyTVN0bjZ4XzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     
+                ></p>
+<h1 id="监控Redis"><a href="#监控Redis" class="headerlink" title="监控Redis"></a>监控Redis</h1><h2 id="安装Redis-exporter"><a href="#安装Redis-exporter" class="headerlink" title="安装Redis_exporter"></a>安装Redis_exporter</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name redis-exporter -p 9093:9121 oliver006/redis_exporter --redis.addr redis://39.102.215.159:6379 --redis.password <span class="string">&#x27;yourpassword&#x27;</span></span><br></pre></td></tr></table></figure></div>
+
+<h2 id="配置-Prometheus-监控Node节点-1"><a href="#配置-Prometheus-监控Node节点-1" class="headerlink" title="配置 Prometheus 监控Node节点"></a>配置 Prometheus 监控Node节点</h2><p>修改prometheus.yml文件</p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- job_name: <span class="string">&#x27;redis-exporter&#x27;</span></span><br><span class="line">  static_configs:</span><br><span class="line">    - targets: [<span class="string">&#x27;192.168.37.200:9093&#x27;</span>]</span><br><span class="line">      labels:</span><br><span class="line">        instance: redis-prod-<span class="number">1</span>  # 建议改为实际Redis实例名称</span><br></pre></td></tr></table></figure></div>
+
+<p>重启Prometheus</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart prometheus</span><br></pre></td></tr></table></figure></div>
+
+<h1 id="配置告警"><a href="#配置告警" class="headerlink" title="配置告警"></a>配置告警</h1><h2 id="创建Alertmanager容器"><a href="#创建Alertmanager容器" class="headerlink" title="创建Alertmanager容器"></a>创建Alertmanager容器</h2><h3 id="创建配置文件-配置邮件告警"><a href="#创建配置文件-配置邮件告警" class="headerlink" title="创建配置文件,配置邮件告警"></a>创建配置文件,配置邮件告警</h3><p>AlertManager 默认配置文件为 alertmanager.yml，QQ邮箱实例</p>
+<div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全局配置部分</span></span><br><span class="line"><span class="attr">global:</span></span><br><span class="line">  <span class="comment"># 解析超时时间设置为5分钟</span></span><br><span class="line">  <span class="attr">resolve_timeout:</span> <span class="string">5m</span></span><br><span class="line">  <span class="comment"># SMTP 发件人邮箱地址</span></span><br><span class="line">  <span class="attr">smtp_from:</span> <span class="string">&#x27;发件人邮箱地址&#x27;</span></span><br><span class="line">  <span class="comment"># SMTP 服务器地址和端口 (QQ邮箱的SMTP服务器)</span></span><br><span class="line">  <span class="attr">smtp_smarthost:</span> <span class="string">&#x27;smtp.qq.com:465&#x27;</span></span><br><span class="line">  <span class="comment"># SMTP 认证用户名 (通常与发件人邮箱相同)</span></span><br><span class="line">  <span class="attr">smtp_auth_username:</span> <span class="string">&#x27;2258702249@qq.com&#x27;</span></span><br><span class="line">  <span class="comment"># SMTP 认证密码 (通常是QQ邮箱的授权码，而非登录密码)</span></span><br><span class="line">  <span class="attr">smtp_auth_password:</span> <span class="string">&#x27;QQ邮箱的授权码&#x27;</span></span><br><span class="line">  <span class="comment"># 是否要求TLS加密连接，这里设置为false表示不强制要求</span></span><br><span class="line">  <span class="attr">smtp_require_tls:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># HELO/EHLO命令发送的域名，通常设置为SMTP服务器域名</span></span><br><span class="line">  <span class="attr">smtp_hello:</span> <span class="string">&#x27;qq.com&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 警报路由配置部分</span></span><br><span class="line"><span class="attr">route:</span></span><br><span class="line">  <span class="comment"># 按警报名称分组</span></span><br><span class="line">  <span class="attr">group_by:</span> [<span class="string">&#x27;alertname&#x27;</span>]</span><br><span class="line">  <span class="comment"># 分组等待时间：5秒，即等待5秒看是否有相同group_by字段的警报</span></span><br><span class="line">  <span class="attr">group_wait:</span> <span class="string">10s</span></span><br><span class="line">  <span class="comment"># 分组间隔时间：5秒，即每5秒检查一次是否有新的同组警报</span></span><br><span class="line">  <span class="attr">group_interval:</span> <span class="string">5s</span></span><br><span class="line">  <span class="comment"># 重复通知间隔：5分钟，即警报解决后5分钟内不会再次发送已解决通知</span></span><br><span class="line">  <span class="attr">repeat_interval:</span> <span class="string">5m</span></span><br><span class="line">  <span class="comment"># 该路由规则匹配的警报将发送到名为&#x27;email&#x27;的接收器</span></span><br><span class="line">  <span class="attr">receiver:</span> <span class="string">&#x27;email&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 接收器配置部分</span></span><br><span class="line"><span class="attr">receivers:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">&#x27;email&#x27;</span>  <span class="comment"># 接收器名称</span></span><br><span class="line">  <span class="attr">email_configs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">to:</span> <span class="string">&#x27;收件人邮箱地址&#x27;</span>  <span class="comment"># 收件人邮箱地址</span></span><br><span class="line">    <span class="comment"># 是否发送警报已解决的通知，这里设置为true表示会发送</span></span><br><span class="line">    <span class="attr">send_resolved:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 警报抑制规则部分</span></span><br><span class="line"><span class="attr">inhibit_rules:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">source_match:</span></span><br><span class="line">      <span class="attr">severity:</span> <span class="string">&#x27;critical&#x27;</span>  <span class="comment"># 当存在严重级别为&#x27;critical&#x27;的警报时</span></span><br><span class="line">    <span class="attr">target_match:</span></span><br><span class="line">      <span class="attr">severity:</span> <span class="string">&#x27;warning&#x27;</span>   <span class="comment"># 抑制严重级别为&#x27;warning&#x27;的警报</span></span><br><span class="line">    <span class="attr">equal:</span> [<span class="string">&#x27;alertname&#x27;</span>, <span class="string">&#x27;dev&#x27;</span>, <span class="string">&#x27;instance&#x27;</span>]  <span class="comment"># 只有当警报名称、dev和instance标签完全相同时才应用抑制规则</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="启动Alertmanager"><a href="#启动Alertmanager" class="headerlink" title="启动Alertmanager"></a>启动Alertmanager</h3><p>在容器内路径为 <code>/etc/alertmanager/alertmanager.yml</code></p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name alertmanager -p 9103:9093 \</span><br><span class="line">-v ./WangZe/prometheus/alertmanager/alertmanager.yml:/etc/alertmanager/alertmanager.yml \</span><br><span class="line">prom/alertmanager</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="配置Prometheus告警"><a href="#配置Prometheus告警" class="headerlink" title="配置Prometheus告警"></a>配置Prometheus告警</h2><h3 id="添加规则"><a href="#添加规则" class="headerlink" title="添加规则"></a>添加规则</h3><p>在之前的告警规则目录中创建规则文件，我用的是 .yml 格式，.rules 好像也可以</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=YjA4MGZiYmFiN2IzN2ViNmI0MGI0ODUzZTQ1NWRhOTRfYzFKRFFBWkVxbThsbEdVaDVqdzkzVEJqRVZTTzNSekpfVG9rZW46QzR5N2I2cGJQb0xSdVd4YmVGV2Nxb3o1blhjXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     
+                ></p>
+<p>然后重启容器</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart alertmanager</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>然后修改prometheus.yml文件</p>
+<div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">global:</span></span><br><span class="line">  <span class="attr">scrape_interval:</span> <span class="string">15s</span></span><br><span class="line">  <span class="attr">evaluation_interval:</span> <span class="string">15s</span> </span><br><span class="line">  </span><br><span class="line"><span class="attr">alerting:</span></span><br><span class="line">  <span class="attr">alertmanagers:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">static_configs:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">targets:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">&quot;192.168.37.200:9103&quot;</span>   <span class="comment">#####配置为刚刚的Alertmanager地址</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="attr">rule_files:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">&quot;/root/prometheusRules/*.yml&quot;</span>    <span class="comment">####配置为刚刚设置的容器内部的放规则文件的路径</span></span><br></pre></td></tr></table></figure></div>
+
+<p>记得重启容器，然后可以看到Prometheus控制台出现了对应规则</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart prometheus</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=N2U4Y2YyODY5OTAzN2QyNmE1OWZmNGFkZjY5NjUyMjZfZ3NnRnpWWDNRYWF1VVBCWGN2M01MSENheE5IWkNDV1ZfVG9rZW46VUliemI4YXdHb3lJRlF4OW92QmNSTllhblNmXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     
+                ></p>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> Docker配置Prometheus+Grafana监控，AlertManager告警通知</li>
+        <li><strong>Author:</strong> zeze</li>
+        <li><strong>Created at
+                :</strong> 2025-06-18 11:57:14</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2025-06-18 12:54:58
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://redefine.ohevan.com/2025/06/18/Docker配置Prometheus+Grafana监控，AlertManager告警通知/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/%E7%9B%91%E6%8E%A7/">#监控</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/2025/06/17/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E2%80%94%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">类加载—双亲委派机制</span>
+						<span class="post-nav-item">Next posts</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">On this page</div>
+		<div class="page-title">Docker配置Prometheus+Grafana监控，AlertManager告警通知</div>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83"><span class="nav-text">环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAPrometheus%E5%AE%B9%E5%99%A8"><span class="nav-text">创建Prometheus容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">创建配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%91%8A%E8%AD%A6%E8%A7%84%E5%88%99%E7%9B%AE%E5%BD%95%EF%BC%88%E4%B8%8D%E9%9C%80%E8%A6%81%E5%91%8A%E8%AD%A6%E5%8F%AF%E4%BB%A5%E5%BF%BD%E7%95%A5%E8%BF%99%E4%B8%80%E6%AD%A5%EF%BC%89"><span class="nav-text">创建告警规则目录（不需要告警可以忽略这一步）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8prometheus"><span class="nav-text">启动prometheus</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAGrafana%E5%AE%B9%E5%99%A8"><span class="nav-text">创建Grafana容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%91%E6%8E%A7Linux"><span class="nav-text">监控Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Node-exporter"><span class="nav-text">安装Node_exporter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-Prometheus-%E7%9B%91%E6%8E%A7Node%E8%8A%82%E7%82%B9"><span class="nav-text">配置 Prometheus 监控Node节点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEGrafana%E5%8F%AF%E8%A7%86%E5%8C%96%E7%95%8C%E9%9D%A2"><span class="nav-text">配置Grafana可视化界面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E6%BA%90"><span class="nav-text">配置数据源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E4%BB%AA%E8%A1%A8%E7%9B%98"><span class="nav-text">新建仪表盘</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%91%E6%8E%A7%E5%A4%9A%E4%B8%AALinux"><span class="nav-text">监控多个Linux</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%91%E6%8E%A7Redis"><span class="nav-text">监控Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Redis-exporter"><span class="nav-text">安装Redis_exporter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-Prometheus-%E7%9B%91%E6%8E%A7Node%E8%8A%82%E7%82%B9-1"><span class="nav-text">配置 Prometheus 监控Node节点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%91%8A%E8%AD%A6"><span class="nav-text">配置告警</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAAlertmanager%E5%AE%B9%E5%99%A8"><span class="nav-text">创建Alertmanager容器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-%E9%85%8D%E7%BD%AE%E9%82%AE%E4%BB%B6%E5%91%8A%E8%AD%A6"><span class="nav-text">创建配置文件,配置邮件告警</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8Alertmanager"><span class="nav-text">启动Alertmanager</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEPrometheus%E5%91%8A%E8%AD%A6"><span class="nav-text">配置Prometheus告警</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E8%A7%84%E5%88%99"><span class="nav-text">添加规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">修改配置文件</span></a></li></ol></li></ol></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+            <div class="customize-info my-1">你说的对，但是《原神》是由米哈游自主研发的一款全新开放世界冒险游戏</div>
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2025</span>
+              -
+            
+            2025&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">zeze</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        2 posts in total
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">VISITOR COUNT</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">TOTAL PAGE VIEWS</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Search..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+
+<script src="/js/build/libs/Swup.min.js"></script>
+
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/build/utils.js" type="module"></script>
+
+<script src="/js/build/main.js" type="module"></script>
+
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/build/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/runtime.js"></script>
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/build/libs/Typed.min.js"></script>
+
+  
+<script src="/js/build/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+    
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+	
+	<div id="aplayer"></div>
+
+<script src="/js/build/libs/APlayer.min.js"></script>
+
+
+<script src="/js/build/plugins/aplayer.js"></script>
+
+
+	
+</body>
+
+</html>
