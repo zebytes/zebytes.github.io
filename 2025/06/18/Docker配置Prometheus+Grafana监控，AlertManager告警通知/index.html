@@ -30,7 +30,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/images/redefine-og.webp">
 <meta property="article:published_time" content="2025-06-18T03:57:14.000Z">
-<meta property="article:modified_time" content="2025-06-18T09:38:16.338Z">
+<meta property="article:modified_time" content="2025-06-18T10:27:00.089Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="监控">
 <meta name="twitter:card" content="summary">
@@ -423,8 +423,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-06-18 17:38:16</span>
-            <span class="mobile">2025-06-18 17:38:16</span>
+            <span class="desktop">2025-06-18 18:27</span>
+            <span class="mobile">2025-06-18 18:27</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -486,7 +486,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/zebytes/images/raw/master/20250618161217421.png"
+                     data-src="https://raw.githubusercontent.com/zebytes/images/main/20250618182153363.png"
                       alt="image.png"
                 ></p>
 <h2 id="启动prometheus"><a href="#启动prometheus" class="headerlink" title="启动prometheus"></a>启动prometheus</h2><p>启动prometheus，如果不需要告警可以不挂载告警规则对应文件夹</p>
@@ -496,7 +496,7 @@
 <p>容器创建成功后，即可通过浏览器访问 <a class="link"   target="_blank" rel="noopener" href="http://192.168.37.200:9100/" >http://192.168.37.200:9100<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 可看到Prometheus默认的UI界面<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/zebytes/images/raw/master/20250618161259959.png"
+                     data-src="https://raw.githubusercontent.com/zebytes/images/main/20250618182220024.png"
                       alt="image.png"
                 ></p>
 </blockquote>
@@ -505,11 +505,10 @@
 
 <p><code>-v ./WangZe/grafana/:/var/lib/grafana/</code> 是用于持久化 Grafana 的数据文件：Grafana 在运行时会生成各种数据，比如用户配置、仪表盘、插件数据等</p>
 <blockquote>
-<p>容器创建成功后，即可通过浏览器访问 <a class="link"   target="_blank" rel="noopener" href="http://192.168.37.200:9101/" >http://192.168.37.200:9101<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 可看到Grafana界面</p>
-<p><img  
+<p>容器创建成功后，即可通过浏览器访问 <a class="link"   target="_blank" rel="noopener" href="http://192.168.37.200:9101/" >http://192.168.37.200:9101<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 可看到Grafana界面<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/zebytes/images/raw/master/20250618161310826.png"
+                     data-src="https://raw.githubusercontent.com/zebytes/images/main/20250618182306127.png"
                       alt="image.png"
                 ></p>
 </blockquote>
@@ -519,11 +518,10 @@
 
 <p>挂载的路径是linux内部硬件、内存等信息的路径（好像也可以不用显示挂载，它可能默认挂载）</p>
 <blockquote>
-<p>容器创建成功后，即可通过浏览器访问 <a class="link"   target="_blank" rel="noopener" href="http://192.168.37.200:9102/metrics" >http://192.168.37.200:9102/metrics<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 来验证查看监控收集的数据</p>
-<p><img  
+<p>容器创建成功后，即可通过浏览器访问 <a class="link"   target="_blank" rel="noopener" href="http://192.168.37.200:9102/metrics" >http://192.168.37.200:9102/metrics<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 来验证查看监控收集的数据<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/zebytes/images/raw/master/20250618161318637.png"
+                     data-src="https://raw.githubusercontent.com/zebytes/images/main/20250618182418886.png"
                       alt="image.png"
                 ></p>
 </blockquote>
@@ -533,43 +531,43 @@
 <p>重启Prometheus容器</p>
 <div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart prometheus</span><br></pre></td></tr></table></figure></div>
 
-<p>访问peometheus然后能在对应页面看到对应的配置</p>
+<p>访问prometheus然后能在对应页面看到对应的配置</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/zebytes/images/raw/master/20250618161328799.png"
+                     data-src="https://raw.githubusercontent.com/zebytes/images/main/20250618182453560.png"
                       alt="image.png"
                 ></p>
 <h1 id="配置Grafana可视化界面"><a href="#配置Grafana可视化界面" class="headerlink" title="配置Grafana可视化界面"></a>配置Grafana可视化界面</h1><p>页面可能由于版本，镜像源不同导致页面不一样，可能也就是按钮不一样吧，大概找找就行</p>
 <h2 id="配置数据源"><a href="#配置数据源" class="headerlink" title="配置数据源"></a>配置数据源</h2><p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/zebytes/images/raw/master/20250618161333077.png"
+                     data-src="https://raw.githubusercontent.com/zebytes/images/main/20250618182509282.png"
                       alt="image.png"
                 ></p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/zebytes/images/raw/master/20250618161333077.png"
-                     
+                     data-src="https://raw.githubusercontent.com/zebytes/images/main/20250618182518157.png"
+                      alt="image.png"
                 ></p>
 <p>Name可以随便写、或者默认，然后填一个Prometheus的URL就好</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/zebytes/images/raw/master/20250618161341461.png"
+                     data-src="https://raw.githubusercontent.com/zebytes/images/main/20250618182542898.png"
                       alt="image.png"
                 ></p>
 <h2 id="新建仪表盘"><a href="#新建仪表盘" class="headerlink" title="新建仪表盘"></a>新建仪表盘</h2><p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/zebytes/images/raw/master/20250618161346488.png"
+                     data-src="https://raw.githubusercontent.com/zebytes/images/main/20250618182553436.png"
                       alt="image.png"
                 ></p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/zebytes/images/raw/master/20250618161349494.png"
+                     data-src="https://raw.githubusercontent.com/zebytes/images/main/20250618182601416.png"
                       alt="image.png"
                 ></p>
 <p>可以去 <a class="link"   target="_blank" rel="noopener" href="https://grafana.com/grafana/dashboards/" >https://grafana.com/grafana/dashboards/<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 找想用的仪表盘</p>
@@ -577,39 +575,35 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/zebytes/images/raw/master/20250618161359263.png"
+                     data-src="https://raw.githubusercontent.com/zebytes/images/main/20250618182611306.png"
                       alt="image.png"
                 ></p>
-<p>输入id然后加载</p>
-<p><img  
+<p>输入id然后加载<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/zebytes/images/raw/master/20250618161403858.png"
+                     data-src="https://raw.githubusercontent.com/zebytes/images/main/20250618182624415.png"
                       alt="image.png"
                 ></p>
-<p>最后选择一下数据源就好了</p>
-<p><img  
+<p>最后选择一下数据源就好了<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/zebytes/images/raw/master/20250618161409383.png"
+                     data-src="https://raw.githubusercontent.com/zebytes/images/main/20250618182630431.png"
                       alt="image.png"
                 ></p>
-<p>找到刚刚的仪表盘即可看到对应的数据</p>
-<p><img  
+<p>找到刚刚的仪表盘即可看到对应的数据<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/zebytes/images/raw/master/20250618161412533.png"
+                     data-src="https://raw.githubusercontent.com/zebytes/images/main/20250618182636096.png"
                       alt="image.png"
                 ></p>
 <h1 id="监控多个Linux"><a href="#监控多个Linux" class="headerlink" title="监控多个Linux"></a>监控多个Linux</h1><p>也可以在前面基础上再加一个</p>
 <div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">  <span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">&quot;linux&quot;</span></span><br><span class="line">    <span class="attr">static_configs:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">targets:</span> [<span class="string">&#x27;192.168.37.200:9102&#x27;</span>]</span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">instance:</span> <span class="string">local-centos</span></span><br><span class="line"><span class="comment">############更改部分##############</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">targets:</span> [<span class="string">&#x27;--.--.--.--:----&#x27;</span>]         </span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">instance:</span> <span class="string">linux2</span></span><br><span class="line"></span><br><span class="line">  </span><br></pre></td></tr></table></figure></div>
 
-<p>对应的效果就是这样，他们属于同一个Job，但是有两个实例</p>
-<p><img  
+<p>对应的效果就是这样，他们属于同一个Job，但是有两个实例<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/zebytes/images/raw/master/20250618161412533.png"
-                     
+                     data-src="https://raw.githubusercontent.com/zebytes/images/main/20250618182642570.png"
+                      alt="image.png"
                 ></p>
 <h1 id="监控Redis"><a href="#监控Redis" class="headerlink" title="监控Redis"></a>监控Redis</h1><h2 id="安装Redis-exporter"><a href="#安装Redis-exporter" class="headerlink" title="安装Redis_exporter"></a>安装Redis_exporter</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name redis-exporter -p 9093:9121 oliver006/redis_exporter --redis.addr redis://39.102.215.159:6379 --redis.password <span class="string">&#x27;yourpassword&#x27;</span></span><br></pre></td></tr></table></figure></div>
 
@@ -625,11 +619,10 @@
 <h3 id="启动Alertmanager"><a href="#启动Alertmanager" class="headerlink" title="启动Alertmanager"></a>启动Alertmanager</h3><p>在容器内路径为 <code>/etc/alertmanager/alertmanager.yml</code></p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name alertmanager -p 9103:9093 \</span><br><span class="line">-v ./WangZe/prometheus/alertmanager/alertmanager.yml:/etc/alertmanager/alertmanager.yml \</span><br><span class="line">prom/alertmanager</span><br></pre></td></tr></table></figure></div>
 
-<h2 id="配置Prometheus告警"><a href="#配置Prometheus告警" class="headerlink" title="配置Prometheus告警"></a>配置Prometheus告警</h2><h3 id="添加规则"><a href="#添加规则" class="headerlink" title="添加规则"></a>添加规则</h3><p>在之前的告警规则目录中创建规则文件，我用的是 .yml 格式，.rules 好像也可以</p>
-<p><img  
+<h2 id="配置Prometheus告警"><a href="#配置Prometheus告警" class="headerlink" title="配置Prometheus告警"></a>配置Prometheus告警</h2><h3 id="添加规则"><a href="#添加规则" class="headerlink" title="添加规则"></a>添加规则</h3><p>在之前的告警规则目录中创建规则文件，我用的是 .yml 格式，.rules 好像也可以<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/zebytes/images/raw/master/20250618161424484.png"
+                     data-src="https://raw.githubusercontent.com/zebytes/images/main/20250618182652920.png"
                       alt="image.png"
                 ></p>
 <p>然后重启容器</p>
@@ -640,12 +633,11 @@
 
 <p>记得重启容器，然后可以看到Prometheus控制台出现了对应规则</p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart prometheus</span><br></pre></td></tr></table></figure></div>
-
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/zebytes/images/main/20250618173728841.png"
-                     
+                     data-src="https://raw.githubusercontent.com/zebytes/images/main/20250618182658127.png"
+                      alt="image.png"
                 ></p>
 
 		</div>
@@ -661,7 +653,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2025-06-18 17:38:16
+                    :</strong> 2025-06-18 18:27:00
             </li>
         
         <li>
