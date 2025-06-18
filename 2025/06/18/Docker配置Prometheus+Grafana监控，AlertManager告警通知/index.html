@@ -30,7 +30,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/images/redefine-og.webp">
 <meta property="article:published_time" content="2025-06-18T03:57:14.000Z">
-<meta property="article:modified_time" content="2025-06-18T04:54:58.548Z">
+<meta property="article:modified_time" content="2025-06-18T06:22:38.734Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="监控">
 <meta name="twitter:card" content="summary">
@@ -423,8 +423,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-06-18 12:54:58</span>
-            <span class="mobile">2025-06-18 12:54:58</span>
+            <span class="desktop">2025-06-18 14:22:38</span>
+            <span class="mobile">2025-06-18 14:22:38</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -486,18 +486,17 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=NTRlNGMxODI4MDMxMTRhZjE5MWI5ZDM0YzczZTU5NDFfOHd5SXdzdWtHUmJFc2g5M1ZtZEJEaW1mYnRvNFFzS21fVG9rZW46VU5Yc2J2U3Job0FUMkN4bzBjRWNTVnlybjVMXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     data-src="https://raw.githubusercontent.com/zebytes/pictures/main/56f6c6a9-3f93-4e7c-98d3-69139baea64b.png"
                      
                 ></p>
 <h2 id="启动prometheus"><a href="#启动prometheus" class="headerlink" title="启动prometheus"></a>启动prometheus</h2><p>启动prometheus，如果不需要告警可以不挂载告警规则对应文件夹</p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run --name prometheus -d  --user root \</span><br><span class="line">-p 9100:9090 \ </span><br><span class="line">--restart=always \</span><br><span class="line">-v ./WangZe/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml \</span><br><span class="line">-v ./WangZe/prometheus/prometheusAlertRules/:/root/prometheusRules/ \</span><br><span class="line">prom/prometheus</span><br></pre></td></tr></table></figure></div>
 
 <blockquote>
-<p>容器创建成功后，即可通过浏览器访问 <a class="link"   target="_blank" rel="noopener" href="http://192.168.37.200:9100/" >http://192.168.37.200:9100<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 可看到Prometheus默认的UI界面</p>
-<p><img  
+<p>容器创建成功后，即可通过浏览器访问 <a class="link"   target="_blank" rel="noopener" href="http://192.168.37.200:9100/" >http://192.168.37.200:9100<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 可看到Prometheus默认的UI界面<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=MjJhZjk5OTQzOWJkN2Y4NTlkODUwMjIzODY2NzE1NGNfRGh5cU5SZVpTajNaVEFxbUNHdFRFM1c4VjNEVVczNDlfVG9rZW46WTZUZmJKbUNab2hoekR4TFhxdmNob09FbmZiXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     data-src="https://raw.githubusercontent.com/zebytes/pictures/main/20250618141527.png"
                      
                 ></p>
 </blockquote>
@@ -510,7 +509,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=N2E5NDhjZTdhNmVjYWE2NGMwOTVkYWNiNmIzZjI2Y2RfTmtDWFZsNW5GRjJlTTRqRXFZQlUxUzRjT1kyVFVTYTRfVG9rZW46Q3VrYWJBNTN5bzRwQ1h4elR0UmNNQ2lzbnZmXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     data-src="https://raw.githubusercontent.com/zebytes/pictures/main/20250618141630.png"
                      
                 ></p>
 </blockquote>
@@ -524,7 +523,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=YWJhNjFkNDg2YTNkZTM3ZThkNWNkMTY1NDEzODg4YmFfWkxaM01KNGhOSFUxQUF3bmlveW95dFFRa29YeG1ZRDVfVG9rZW46Umdua2JMb1pMbzRmY3l4cHZ4a2NKanpoblNqXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     data-src="https://raw.githubusercontent.com/zebytes/pictures/main/20250618141706.png"
                      
                 ></p>
 </blockquote>
@@ -538,39 +537,39 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2IxNDNiYjJhZmJhYWY3NWIxY2MwOWYzYTAyZTkyM2NfR0VFV0NSQmpMczYwVVU2T2dENmFvT2hVTnpXcXVwQVlfVG9rZW46UzJFNmJrUjNLb25uYnV4UEUyN2Mxekl1bnljXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     data-src="https://raw.githubusercontent.com/zebytes/pictures/main/20250618141747.png"
                      
                 ></p>
 <h1 id="配置Grafana可视化界面"><a href="#配置Grafana可视化界面" class="headerlink" title="配置Grafana可视化界面"></a>配置Grafana可视化界面</h1><p>页面可能由于版本，镜像源不同导致页面不一样，可能也就是按钮不一样吧，大概找找就行</p>
 <h2 id="配置数据源"><a href="#配置数据源" class="headerlink" title="配置数据源"></a>配置数据源</h2><p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=MjZhN2I2ODc2OTUwOWVlMWI0NGUwNjc3OGI3OTcyNTRfeEx2aUtPWkhHUnFVNjVxMndMV2toUk5oUTVuaUF5UkNfVG9rZW46RkhLT2JjQ2sybzBhQ0t4Q2p4NmNEMW9vbjJnXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     data-src="https://raw.githubusercontent.com/zebytes/pictures/main/20250618141809.png"
                      
                 ></p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=ZWZjZmNhNjZlYmIwZDgyYjM4ZTAzNDhmZjQwYmI5NjFfR05ZQUJqU2FWTmVrSVRFVm00cGxZcGtscHR0Ykg3UkxfVG9rZW46QXZBN2JaRHpib0JHVjd4d3pXdWNPY2VSblBkXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     data-src="https://raw.githubusercontent.com/zebytes/pictures/main/20250618141834.png"
                      
                 ></p>
 <p>Name可以随便写、或者默认，然后填一个Prometheus的URL就好</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=MTQzM2ExYmVlOGVhMTE1ZDc5Y2U0M2RkNjVjMDMzMThfRU1KbWFDRHl4TFI0UFJkQTA4d2hMa09velNaQzgyRWlfVG9rZW46SVdXN2JFYmxNb2RPT2F4OHlWeWNBVmxxbkZmXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     data-src="https://raw.githubusercontent.com/zebytes/pictures/main/20250618141853.png"
                      
                 ></p>
 <h2 id="新建仪表盘"><a href="#新建仪表盘" class="headerlink" title="新建仪表盘"></a>新建仪表盘</h2><p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=OTVlNDcyOGNjYjYyNTU2YTBiMDk2YzdkZGRmYTE0ZGVfRUEyWmJNT004N3U0NDIzeENHdVl5TkpnVWpPZVp2TUlfVG9rZW46S2ZxS2JUWDZ4bzZ4bEF4a0Z0V2M2ZnNvblNmXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     data-src="https://raw.githubusercontent.com/zebytes/pictures/main/20250618141918.png"
                      
                 ></p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=NjI4ZTBlNzRhZGY2MjA4OTBlMTM5ZTA0ZDYyMmE1OTZfSjBTV0JpMFRkME1OTEFNS0JtcWV1MXZnOFN3WDVieHJfVG9rZW46TUhLQ2J2bUd0b2NRWXF4R1R0N2NhakJibldmXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     data-src="https://raw.githubusercontent.com/zebytes/pictures/main/20250618141936.png"
                      
                 ></p>
 <p>可以去<a class="link"   target="_blank" rel="noopener" href="https://grafana.com/grafana/dashboards/%E6%89%BE%E6%83%B3%E7%94%A8%E7%9A%84%E4%BB%AA%E8%A1%A8%E7%9B%98" >https://grafana.com/grafana/dashboards/找想用的仪表盘<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
@@ -578,28 +577,28 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=YzRmYTI5M2M0OWJkOGM1YmFjZTE5MjE1MjE0MTNkYTFfZXhqS0RiUmQxdUw2dUZQNlh5TGswRkhwTENxZmg4eFBfVG9rZW46QVNKQ2JqRDVkb0hMb1h4V1VLcmN2MkFWbmJkXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     data-src="https://raw.githubusercontent.com/zebytes/pictures/main/20250618142004.png"
                      
                 ></p>
 <p>输入id然后加载</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=MWU4ZjQ2MzMyZGNiZDFlOTQwZDdiOTRiZDFhOWEyMTJfVlp3T1RWaHRINGhOUXRZNGJ3Q0lPS1QzMFhSTG9QVkFfVG9rZW46TGVFNGI0SThwb0lrRG54c0dxOGNWWFo0bnBlXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     data-src="https://raw.githubusercontent.com/zebytes/pictures/main/20250618142025.png"
                      
                 ></p>
 <p>最后选择一下数据源就好了</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=N2NjMzI3ZWU5MTc5MzQxMDAyZTRlZjk5NGM5YjQ3ZjJfM1ZzN2VOOHRMckw4OWlLbm5pY0RrajlCTngzUExCdHRfVG9rZW46WFhZVmJyRzlJb1hadjB4SWJ4dGNrMGh6bkdiXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     data-src="https://raw.githubusercontent.com/zebytes/pictures/main/20250618142044.png"
                      
                 ></p>
 <p>找到刚刚的仪表盘即可看到对应的数据</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGI3MTM5YTNkNDdmZWI1ZDA3NTQzNmM3NWE5YjRiMDVfUGxLcGxSVnc1SktBMmNtQkw1M3R5RjRTNWxqbXFOTWpfVG9rZW46U1NJVmJQRVhyb0NUMHB4aUdkZmMwa21VbmJjXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     data-src="https://raw.githubusercontent.com/zebytes/pictures/main/20250618142059.png"
                      
                 ></p>
 <h1 id="监控多个Linux"><a href="#监控多个Linux" class="headerlink" title="监控多个Linux"></a>监控多个Linux</h1><p>也可以在前面基础上再加一个</p>
@@ -609,7 +608,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=YjA5YWQ1OWE2ZTU0N2I2MTM0Y2U2OWM2ZjA5ODMxMjBfZldNUVFleEJ6aUMybldyVDE4RlpuOE1mVWs0TEdnYmxfVG9rZW46VmF6cmJqSFpnbzlUdXV4cWtXV2NyTVN0bjZ4XzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     data-src="https://raw.githubusercontent.com/zebytes/pictures/main/20250618142126.png"
                      
                 ></p>
 <h1 id="监控Redis"><a href="#监控Redis" class="headerlink" title="监控Redis"></a>监控Redis</h1><h2 id="安装Redis-exporter"><a href="#安装Redis-exporter" class="headerlink" title="安装Redis_exporter"></a>安装Redis_exporter</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name redis-exporter -p 9093:9121 oliver006/redis_exporter --redis.addr redis://39.102.215.159:6379 --redis.password <span class="string">&#x27;yourpassword&#x27;</span></span><br></pre></td></tr></table></figure></div>
@@ -630,7 +629,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=YjA4MGZiYmFiN2IzN2ViNmI0MGI0ODUzZTQ1NWRhOTRfYzFKRFFBWkVxbThsbEdVaDVqdzkzVEJqRVZTTzNSekpfVG9rZW46QzR5N2I2cGJQb0xSdVd4YmVGV2Nxb3o1blhjXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     data-src="https://raw.githubusercontent.com/zebytes/pictures/main/20250618142200.png"
                      
                 ></p>
 <p>然后重启容器</p>
@@ -645,7 +644,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gagjcxhxrb.feishu.cn/space/api/box/stream/download/asynccode/?code=N2U4Y2YyODY5OTAzN2QyNmE1OWZmNGFkZjY5NjUyMjZfZ3NnRnpWWDNRYWF1VVBCWGN2M01MSENheE5IWkNDV1ZfVG9rZW46VUliemI4YXdHb3lJRlF4OW92QmNSTllhblNmXzE3NTAyMTgwNjI6MTc1MDIyMTY2Ml9WNA"
+                     data-src="https://raw.githubusercontent.com/zebytes/pictures/main/20250618142223.png"
                      
                 ></p>
 
@@ -662,7 +661,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2025-06-18 12:54:58
+                    :</strong> 2025-06-18 14:22:38
             </li>
         
         <li>
