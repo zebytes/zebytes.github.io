@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://zebytes.github.io/images/redefine-og.webp">
 <meta property="article:published_time" content="2025-06-19T05:08:00.000Z">
-<meta property="article:modified_time" content="2025-06-20T10:29:38.032Z">
+<meta property="article:modified_time" content="2025-06-20T10:55:25.713Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="spring">
 <meta name="twitter:card" content="summary">
@@ -567,8 +567,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-06-20 18:29:38</span>
-            <span class="mobile">2025-06-20 18:29:38</span>
+            <span class="desktop">2025-06-20 18:55:25</span>
+            <span class="mobile">2025-06-20 18:55:25</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -648,13 +648,12 @@
 <p>META-INF&#x2F;org.springframework.boot.autoconfigure.AutoConfiguration.imports的内容格式如下</p>
 <div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">com.ze.test.config.UserAutoConfiguration</span></span><br></pre></td></tr></table></figure></div>
 
-<h1 id="创建starter模块"><a href="#创建starter模块" class="headerlink" title="创建starter模块"></a>创建starter模块</h1><h2 id="创建一个子模块"><a href="#创建一个子模块" class="headerlink" title="创建一个子模块"></a>创建一个子模块</h2><p><img src="http://39.102.215.159:9000/images/20250620181811733.png" alt="image.png"></p>
+<h1 id="创建starter模块"><a href="#创建starter模块" class="headerlink" title="创建starter模块"></a>创建starter模块</h1><h2 id="创建一个子模块"><a href="#创建一个子模块" class="headerlink" title="创建一个子模块"></a>创建一个子模块</h2><p><img src="https://raw.githubusercontent.com/zebytes/images/main/20250619125631624.png"></p>
 <h2 id="添加所需依赖"><a href="#添加所需依赖" class="headerlink" title="添加所需依赖"></a>添加所需依赖</h2><p>在子模块pom文件加一下依赖（父模块已经做了依赖版本管理了）</p>
 <div class="code-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-autoconfigure<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
 
-<h2 id="创建config包"><a href="#创建config包" class="headerlink" title="创建config包"></a>创建config包</h2><p>在子模块创建一个<code>config</code>包，用来存放<strong>自动配置类</strong></p>
-<p><img src="http://39.102.215.159:9000/images/20250620181840905.png" alt="image.png"></p>
-<h1 id="实现自动配置"><a href="#实现自动配置" class="headerlink" title="实现自动配置"></a>实现自动配置</h1><h2 id="创建User类，UserAutoConfiguration类"><a href="#创建User类，UserAutoConfiguration类" class="headerlink" title="创建User类，UserAutoConfiguration类"></a>创建<code>User</code>类，<code>UserAutoConfiguration</code>类</h2><p>比如说我们可以放一个<code>User</code>类，然后写一个它的自动配置类<br><img src="http://39.102.215.159:9000/images/20250620181849981.png" alt="image.png"></p>
+<h2 id="创建config包"><a href="#创建config包" class="headerlink" title="创建config包"></a>创建config包</h2><p>在子模块创建一个<code>config</code>包，用来存放<strong>自动配置类</strong><br><img src="https://raw.githubusercontent.com/zebytes/images/main/20250619125658383.png"></p>
+<h1 id="实现自动配置"><a href="#实现自动配置" class="headerlink" title="实现自动配置"></a>实现自动配置</h1><h2 id="创建User类，UserAutoConfiguration类"><a href="#创建User类，UserAutoConfiguration类" class="headerlink" title="创建User类，UserAutoConfiguration类"></a>创建<code>User</code>类，<code>UserAutoConfiguration</code>类</h2><p>比如说我们可以放一个<code>User</code>类，然后写一个它的自动配置类<br><img src="https://raw.githubusercontent.com/zebytes/images/main/20250619125709090.png"></p>
 <p><code>User</code>类如下</p>
 <div class="code-container" data-rel="Typescript"><figure class="iseeu highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">package com.<span class="property">ze</span>.<span class="property">test</span>.<span class="property">user</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="title class_">String</span> name;</span><br><span class="line">    <span class="keyword">public</span> <span class="title class_">User</span>() &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title class_">User</span>(<span class="title class_">String</span> name) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title class_">String</span> <span class="title function_">getName</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">void</span> <span class="title function_">setName</span>(<span class="params"><span class="title class_">String</span> name</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
@@ -666,7 +665,7 @@
 </blockquote>
 <h2 id="创建META-INF及spring目录：SpringBoot3-示例"><a href="#创建META-INF及spring目录：SpringBoot3-示例" class="headerlink" title="创建META-INF及spring目录：SpringBoot3 示例"></a>创建META-INF及spring目录：SpringBoot3 示例</h2><p>接着，在 <code>/main</code> 文件夹下，创建 <code>/resources</code> 包，再创建 <code>/META-INF</code> 文件夹，再在里面创建 <code>/spring</code> 文件夹 , 以及 <code>org.springframework.boot.autoconfigure.AutoConfiguration.imports</code> 文件</p>
 <p><strong>注意，这是自定义</strong> <strong><code>starter</code></strong> <strong>固定步骤，需要严格按照此格式来书写</strong></p>
-<p>如下图：<br><img src="http://39.102.215.159:9000/images/20250620181902218.png" alt="image.png"></p>
+<p>如下图：<br><img src="https://raw.githubusercontent.com/zebytes/images/main/20250619125717468.png"></p>
 <p><code>.imports</code> 文件中内容如下，填写刚刚的 <code>UserAutoConfiguration</code>自动配置类的完整包路径：</p>
 <div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">com.ze.test.config.UserAutoConfiguration</span></span><br></pre></td></tr></table></figure></div>
 
@@ -675,8 +674,6 @@
 </blockquote>
 <p>至此，自定义 <code>starter</code> 步骤就完成了，最后的目录结构就是这样</p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">kid2-spring-boot-starter/</span><br><span class="line">├── src/</span><br><span class="line">│   ├── main/</span><br><span class="line">│   │   ├── java/</span><br><span class="line">│   │   │   └── com/ze/test/</span><br><span class="line">│   │   │       ├── config/</span><br><span class="line">│   │   │       │   └── UserAutoConfiguration.java  <span class="comment"># 自动配置类</span></span><br><span class="line">│   │   │       └── user/</span><br><span class="line">│   │   │           └── User.java                   <span class="comment"># 实体类</span></span><br><span class="line">│   │   └── resources/</span><br><span class="line">│   │       └── META-INF/</span><br><span class="line">│   │           └── spring/</span><br><span class="line">│   │               └── org.springframework.boot.autoconfigure.AutoConfiguration.imports  <span class="comment"># 自动配置注册文件</span></span><br><span class="line">│   └── <span class="built_in">test</span>/</span><br><span class="line">│       └── java/                                  </span><br><span class="line">└── pom.xml                                       </span><br></pre></td></tr></table></figure></div>
-
-<p><img src="http://39.102.215.159:9000/images/%E5%AE%B9%E5%AE%B9.png"></p>
 
 		</div>
 
@@ -691,7 +688,7 @@
         
             <li>
                 <strong>更新于
-                    :</strong> 2025-06-20 18:29:38
+                    :</strong> 2025-06-20 18:55:25
             </li>
         
         <li>
